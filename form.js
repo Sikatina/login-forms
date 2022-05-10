@@ -23,6 +23,31 @@ $(document).ready(function(){
  
             $(".register").fadeIn(200);
             $("body > p").fadeIn();
-        });
+            
+           
+          
+        });  
     });
+
+   //  Handle on submit
+   $("#register-form").submit(function(e)
+   {
+      e.preventDefault();
+      if(!isNumeric($("#phone-input").val()))
+      {
+         alert("Phone number cannot contain letters")
+         return
+      }
+      
+      if($("#phone-input").val().length < 10 )
+      {
+         alert("Phone number is not correct")
+         return
+      }
+   })
+
+   function isNumeric(str){
+      //TODO: if(typeof(str != "string")) return false;
+      return !isNaN(str) &  !isNaN(parseFloat(str))
+   }
 });           
